@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
 " }}}
 
 " Appearance {{{
+    set cursorline
     set number " show line numbers
     set wrap " turn on line wrapping
     set wrapmargin=8 " wrap lines when coming within n characters from side
@@ -108,8 +109,10 @@ call plug#begin('~/.config/nvim/plugged')
 
     " Load colorschemes
     Plug 'chriskempson/base16-vim'
-    Plug 'joshdick/onedark.vim'
-
+    "Plug 'joshdick/onedark.vim'
+    Plug 'phanviet/vim-monokai-pro'
+    " gruvbox"
+    Plug 'morhetz/gruvbox'
     "airline"
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -194,7 +197,7 @@ call plug#begin('~/.config/nvim/plugged')
     vnoremap $< <esc>`>a><esc>`<i<<esc>
 
     " toggle cursor line
-    nnoremap <leader>i :set cursorline!<cr>
+    "nnoremap <leader>i :set cursorline!<cr>
 
     " scroll the viewport faster
     nnoremap <C-e> 3<C-e>
@@ -302,7 +305,7 @@ call plug#begin('~/.config/nvim/plugged')
         " Custom startup list, only show MRU from current directory/project
         let g:startify_lists = [
         \  { 'type': 'dir',       'header': [ 'Files '. getcwd() ] },
-        \  { 'type': function('helpers#startify#listcommits'), 'header': [ 'Recent Commits' ] },
+        "\  { 'type': function('helpers#startify#listcommits'), 'header': [ 'Recent Commits' ] },
         \  { 'type': 'sessions',  'header': [ 'Sessions' ]       },
         \  { 'type': 'bookmarks', 'header': [ 'Bookmarks' ]      },
         \  { 'type': 'commands',  'header': [ 'Commands' ]       },
@@ -563,7 +566,9 @@ call plug#end()
     else
         let g:onedark_termcolors=16
         let g:onedark_terminal_italics=1
-        colorscheme onedark
+        "colorscheme onedark
+        "colorscheme monokai_pro
+        colorscheme base16-gruvbox-dark-hard
     endif
     syntax on
     filetype plugin indent on
