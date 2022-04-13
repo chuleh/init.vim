@@ -174,8 +174,6 @@ call plug#begin('~/.config/nvim/plugged')
     nnoremap <C-L> <C-W><C-L>
     nnoremap <C-H> <C-W><C-H>
 
-    nmap <leader>z <Plug>Zoom
-
     map <leader>wc :wincmd q<cr>
 
     " move line mappings
@@ -305,7 +303,6 @@ call plug#begin('~/.config/nvim/plugged')
         " Custom startup list, only show MRU from current directory/project
         let g:startify_lists = [
         \  { 'type': 'dir',       'header': [ 'Files '. getcwd() ] },
-        "\  { 'type': function('helpers#startify#listcommits'), 'header': [ 'Recent Commits' ] },
         \  { 'type': 'sessions',  'header': [ 'Sessions' ]       },
         \  { 'type': 'bookmarks', 'header': [ 'Bookmarks' ]      },
         \  { 'type': 'commands',  'header': [ 'Commands' ]       },
@@ -389,7 +386,6 @@ call plug#begin('~/.config/nvim/plugged')
         \ }
     " }}}
 
-    "
     " FZF
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
@@ -570,8 +566,11 @@ call plug#end()
         "colorscheme monokai_pro
         colorscheme base16-gruvbox-dark-hard
     endif
+
     syntax on
+
     filetype plugin indent on
+    
     " make the highlighting of tabs and other non-text less annoying
     highlight SpecialKey ctermfg=19 guifg=#333333
     highlight NonText ctermfg=19 guifg=#333333
@@ -580,6 +579,7 @@ call plug#end()
     highlight Comment cterm=italic term=italic gui=italic
     highlight htmlArg cterm=italic term=italic gui=italic
     highlight xmlAttrib cterm=italic term=italic gui=italic
+    
     " highlight Type cterm=italic term=italic gui=italic
     highlight Normal ctermbg=none
 " }}}
