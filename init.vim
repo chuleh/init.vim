@@ -393,11 +393,13 @@ call plug#begin('~/.config/nvim/plugged')
 
     " vim-fugitive {{{
         Plug 'tpope/vim-fugitive'
-        nmap <silent> <leader>gs :Gstatus<cr>
-        nmap <leader>ge :Gedit<cr>
-        nmap <silent><leader>gr :Gread<cr>
-        nmap <silent><leader>gb :Gblame<cr>
-        nmap <silent><leader>gl :Gpull<cr>
+        nmap <silent><leader>gs :Git status<cr>
+        nmap <silent><leader>gb :Git blame<cr>
+        nmap <silent><leader>gl :Git pull<cr>
+        nmap <silent><leader>gp :Git push<cr>
+        nmap <silent><leader>gc :Git checkout<cr>
+
+
 
         Plug 'tpope/vim-rhubarb' " hub extension for fugitive
         Plug 'sodapopcan/vim-twiggy'
@@ -507,8 +509,11 @@ call plug#begin('~/.config/nvim/plugged')
         " pug / jade support
         Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
 
-		" nunjucks support
+        " nunjucks support
         Plug 'niftylettuce/vim-jinja', { 'for': 'njk' }
+
+        "hcl
+        Plug 'jvirtanen/vim-hcl'
     " }}}
 
     " JavaScript {{{
@@ -522,7 +527,6 @@ call plug#begin('~/.config/nvim/plugged')
 
     " TypeScript {{{
         Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.tsx'] }
-        " Plug 'Shougo/vimproc.vim', { 'do': 'make' } TODO what still needs this?
     " }}}
 
 
@@ -583,3 +587,4 @@ call plug#end()
     " highlight Type cterm=italic term=italic gui=italic
     highlight Normal ctermbg=none
 " }}}
+
