@@ -136,6 +136,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     " edit ~/.config/nvim/init.vim
     map <leader>ev :e! ~/.config/nvim/init.vim<cr>
+
     " edit gitconfig
     map <leader>eg :e! ~/.gitconfig<cr>
 
@@ -291,7 +292,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-sleuth'
 
     " Startify: Fancy startup screen for vim {{{
-        Plug 'mhinz/vim-startify'
+    Plug 'mhinz/vim-startify'
 
         " Don't change to directory when selecting a file
         let g:startify_files_number = 5
@@ -328,7 +329,7 @@ call plug#begin('~/.config/nvim/plugged')
     nmap <leader>b :Bdelete<cr>
 
     " Writing in vim {{{{
-        Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/goyo.vim'
 
         autocmd! User GoyoEnter nested call helpers#goyo#enter()
         autocmd! User GoyoLeave nested call helpers#goyo#leave()
@@ -337,11 +338,14 @@ call plug#begin('~/.config/nvim/plugged')
     " context-aware pasting
     Plug 'sickill/vim-pasta'
 
+    " treesiter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
     " NERDTree {{{
-        Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-        Plug 'Xuyuanp/nerdtree-git-plugin'
-        Plug 'ryanoasis/vim-devicons'
-        Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
         let g:WebDevIconsOS = 'Darwin'
         let g:WebDevIconsUnicodeDecorateFolderNodes = 1
         let g:DevIconsEnableFoldersOpenClose = 1
@@ -370,8 +374,6 @@ call plug#begin('~/.config/nvim/plugged')
         nmap <silent> <leader>y :NERDTreeFind<cr>
 
         let NERDTreeShowHidden=1
-        " let NERDTreeDirArrowExpandable = '▷'
-        " let NERDTreeDirArrowCollapsible = '▼'
         let g:NERDTreeIndicatorMapCustom = {
         \ "Modified"  : "✹",
         \ "Staged"    : "✚",
@@ -389,10 +391,11 @@ call plug#begin('~/.config/nvim/plugged')
     " FZF
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
-    map <C-f> :Files <CR>
+        map <C-f> :Files <CR>
 
     " vim-fugitive {{{
-        Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
+        nmap <silent><leader>ga :Git add .<cr>
         nmap <silent><leader>gs :Git status<cr>
         nmap <silent><leader>gb :Git blame<cr>
         nmap <silent><leader>gl :Git pull<cr>
@@ -401,21 +404,19 @@ call plug#begin('~/.config/nvim/plugged')
 
 
 
-        Plug 'tpope/vim-rhubarb' " hub extension for fugitive
-        Plug 'sodapopcan/vim-twiggy'
+    Plug 'tpope/vim-rhubarb' " hub extension for fugitive
+    Plug 'sodapopcan/vim-twiggy'
     " }}}
 
     " UltiSnips {{{
-        Plug 'SirVer/ultisnips' " Snippets plugin
+    Plug 'SirVer/ultisnips' " Snippets plugin
         let g:UltiSnipsExpandTrigger="<C-l>"
         let g:UltiSnipsJumpForwardTrigger="<C-j>"
         let g:UltiSnipsJumpBackwardTrigger="<C-k>"
     " }}}
 
     " coc {{{
-        "Plug 'neoclide/coc.nvim', {'do': 'npm install --frozen-lockfile'}
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
         let g:coc_global_extensions = [
         \ 'coc-css',
         \ 'coc-json',
@@ -494,66 +495,66 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Language-Specific Configuration {{{
     " html / templates {{{
-        " emmet support for vim - easily create markdup wth CSS-like syntax
-        Plug 'mattn/emmet-vim'
+    " emmet support for vim - easily create markdup wth CSS-like syntax
+    Plug 'mattn/emmet-vim'
 
-        " match tags in html, similar to paren support
-        Plug 'gregsexton/MatchTag', { 'for': 'html' }
+    " match tags in html, similar to paren support
+    Plug 'gregsexton/MatchTag', { 'for': 'html' }
 
-        " html5 support
-        Plug 'othree/html5.vim', { 'for': 'html' }
+    " html5 support
+    Plug 'othree/html5.vim', { 'for': 'html' }
 
-        " mustache support
-        Plug 'mustache/vim-mustache-handlebars'
+    " mustache support
+    Plug 'mustache/vim-mustache-handlebars'
 
-        " pug / jade support
-        Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
+    " pug / jade support
+    Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
 
-        " nunjucks support
-        Plug 'niftylettuce/vim-jinja', { 'for': 'njk' }
+    " nunjucks support
+    Plug 'niftylettuce/vim-jinja', { 'for': 'njk' }
 
-        "hcl
-        Plug 'jvirtanen/vim-hcl'
+    "hcl
+    Plug 'jvirtanen/vim-hcl'
     " }}}
 
     " JavaScript {{{
-        Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
-        " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'html'] }
-        Plug 'moll/vim-node', { 'for': 'javascript' }
-		Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
-		Plug 'MaxMEllon/vim-jsx-pretty'
-		let g:vim_jsx_pretty_highlight_close_tag = 1
+    Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
+    " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'html'] }
+    Plug 'moll/vim-node', { 'for': 'javascript' }
+    Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+    Plug 'MaxMEllon/vim-jsx-pretty'
+        let g:vim_jsx_pretty_highlight_close_tag = 1
     " }}}
 
     " TypeScript {{{
-        Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.tsx'] }
+    Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.tsx'] }
     " }}}
 
 
     " Styles {{{
-        Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] }
-        Plug 'groenewege/vim-less', { 'for': 'less' }
-        Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-        Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-        Plug 'stephenway/postcss.vim', { 'for': 'css' }
+    Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] }
+    Plug 'groenewege/vim-less', { 'for': 'less' }
+    Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+    Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+    Plug 'stephenway/postcss.vim', { 'for': 'css' }
     " }}}
 
     " markdown {{{
-        Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+    Plug 'tpope/vim-markdown', { 'for': 'markdown' }
         let g:markdown_fenced_languages = [ 'tsx=typescript.tsx' ]
 
         " Open markdown files in Marked.app - mapped to <leader>m
-        Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
+    Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
         nmap <leader>m :MarkedOpen!<cr>
         nmap <leader>mq :MarkedQuit<cr>
         nmap <leader>* *<c-o>:%s///gn<cr>
     " }}}
 
     " JSON {{{
-        Plug 'elzr/vim-json', { 'for': 'json' }
+    Plug 'elzr/vim-json', { 'for': 'json' }
         let g:vim_json_syntax_conceal = 0
     " }}}
-
+    " Dockerfile
     Plug 'ekalinin/Dockerfile.vim'
 " }}}
 
@@ -587,4 +588,3 @@ call plug#end()
     " highlight Type cterm=italic term=italic gui=italic
     highlight Normal ctermbg=none
 " }}}
-
