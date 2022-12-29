@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/plugged')
         set inccommand=nosplit
     endif
 
-    set backspace=indent,eol,start " make backspace behave in a sane manner
+    set backspace=2
     set clipboard=unnamed
 
     "mouse check
@@ -136,7 +136,6 @@ call plug#begin('~/.config/nvim/plugged')
 
     " edit ~/.config/nvim/init.vim
     map <leader>ev :e! ~/.config/nvim/init.vim<cr>
-
     " edit gitconfig
     map <leader>eg :e! ~/.gitconfig<cr>
 
@@ -395,7 +394,6 @@ call plug#begin('~/.config/nvim/plugged')
 
     " vim-fugitive {{{
     Plug 'tpope/vim-fugitive'
-        nmap <silent><leader>ga :Git add .<cr>
         nmap <silent><leader>gs :Git status<cr>
         nmap <silent><leader>gb :Git blame<cr>
         nmap <silent><leader>gl :Git pull<cr>
