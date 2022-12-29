@@ -394,11 +394,13 @@ call plug#begin('~/.config/nvim/plugged')
 
     " vim-fugitive {{{
     Plug 'tpope/vim-fugitive'
+        nmap <silent><leader>ga :Git add .<cr>
         nmap <silent><leader>gs :Git status<cr>
         nmap <silent><leader>gb :Git blame<cr>
+        nmap <silent><leader>gf :Git fetch<cr>
         nmap <silent><leader>gl :Git pull<cr>
         nmap <silent><leader>gp :Git push<cr>
-        nmap <silent><leader>gc :Git checkout<cr>
+        nmap <silent><leader>gc :Git checkout -b<cr>
 
 
 
