@@ -399,8 +399,7 @@ call plug#begin('~/.config/nvim/plugged')
         nmap <silent><leader>gb :Git blame<cr>
         nmap <silent><leader>gf :Git fetch<cr>
         nmap <silent><leader>gl :Git pull<cr>
-        nmap <silent><leader>gp :Git push<cr>
-        nmap <silent><leader>gc :Git checkout -b<cr>
+        nmap <silent><leader>gp :Git push -v<cr>
 
 
 
