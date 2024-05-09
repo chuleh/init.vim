@@ -107,16 +107,15 @@ call plug#begin('~/.config/nvim/plugged')
     " highlight conflicts
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-    " Load colorschemes
-    Plug 'chriskempson/base16-vim'
-    "Plug 'joshdick/onedark.vim'
-    Plug 'phanviet/vim-monokai-pro'
-    " gruvbox"
+    " Load colorschemes [[
+    " gruvbox
     Plug 'morhetz/gruvbox'
+
     "airline"
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='base16'
+    " ]]
 
 " General Mappings {{{
     " set a map leader for more key combos
@@ -269,11 +268,8 @@ call plug#begin('~/.config/nvim/plugged')
     " endings for html, xml, etc. - ehances surround
     Plug 'tpope/vim-ragtag'
 
-    " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
+    " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parents, etc.
     Plug 'tpope/vim-surround'
-
-    " tmux integration for vim
-    Plug 'benmills/vimux'
 
     " enables repeating other supported plugins with the . command
     Plug 'tpope/vim-repeat'
@@ -387,7 +383,7 @@ call plug#begin('~/.config/nvim/plugged')
         \ }
     " }}}
 
-    " FZF
+    " FZF - finder
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
         map <C-f> :Files <CR>
@@ -395,11 +391,12 @@ call plug#begin('~/.config/nvim/plugged')
     " vim-fugitive {{{
     Plug 'tpope/vim-fugitive'
         nmap <silent><leader>ga :Git add .<cr>
-        nmap <silent><leader>gs :Git status<cr>
+        nmap <silent><leader>gs :Git status --short<cr>
         nmap <silent><leader>gb :Git blame<cr>
         nmap <silent><leader>gf :Git fetch<cr>
         nmap <silent><leader>gl :Git pull<cr>
         nmap <silent><leader>gp :Git push -v<cr>
+        nmap <silent><leader>gm :Git commit -m<cr>
 
 
 
@@ -497,20 +494,14 @@ call plug#begin('~/.config/nvim/plugged')
     " emmet support for vim - easily create markdup wth CSS-like syntax
     Plug 'mattn/emmet-vim'
 
-    " match tags in html, similar to paren support
+    " match tags in html, similar to parent support
     Plug 'gregsexton/MatchTag', { 'for': 'html' }
 
     " html5 support
     Plug 'othree/html5.vim', { 'for': 'html' }
 
-    " mustache support
-    Plug 'mustache/vim-mustache-handlebars'
-
     " pug / jade support
     Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-
-    " nunjucks support
-    Plug 'niftylettuce/vim-jinja', { 'for': 'njk' }
 
     "hcl
     Plug 'jvirtanen/vim-hcl'
@@ -518,7 +509,6 @@ call plug#begin('~/.config/nvim/plugged')
 
     " JavaScript {{{
     Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
-    " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'html'] }
     Plug 'moll/vim-node', { 'for': 'javascript' }
     Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
     Plug 'MaxMEllon/vim-jsx-pretty'
@@ -533,9 +523,6 @@ call plug#begin('~/.config/nvim/plugged')
     " Styles {{{
     Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] }
     Plug 'groenewege/vim-less', { 'for': 'less' }
-    Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-    Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-    Plug 'stephenway/postcss.vim', { 'for': 'css' }
     " }}}
 
     " markdown {{{
@@ -560,16 +547,9 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 " Colorscheme {{{
-    if filereadable(expand("~/.vimrc_background"))
-        let base16colorspace=256
-        source ~/.vimrc_background
-    else
-        let g:onedark_termcolors=16
-        let g:onedark_terminal_italics=1
-        "colorscheme onedark
-        "colorscheme monokai_pro
-        colorscheme base16-gruvbox-dark-hard
-    endif
+    let g:onedark_termcolors=16
+    let g:onedark_terminal_italics=1
+    colorscheme gruvbox
 
     syntax on
 
